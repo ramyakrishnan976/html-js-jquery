@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Dine In - Desserts Menu</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden; /* Prevent body from scrolling horizontally */
+        }
+
+        /* HEADER */
+        header {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #333;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid #444;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover { background: #d35400; }
+
+        /* THE BIG HORIZONTAL SCROLL FRAME */
+        .big-horizontal-frame {
+            border: 8px double #333;
+            background-color: #fff;
+            margin: 40px auto;
+            max-width: 95%;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            
+            /* Horizontal Scroll Logic */
+            display: flex;
+            overflow-x: auto;
+            gap: 25px;
+            white-space: nowrap; /* Keeps inner frames in one line */
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* INDIVIDUAL VERTICAL SCROLL FRAMES */
+        .inner-vertical-frame {
+            flex: 0 0 350px; /* Width of each category box */
+            background: #fafafa;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            height: 450px; /* Fixed height for vertical scroll */
+            overflow-y: auto; 
+            padding: 15px;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.05);
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .title-label {
+            background: #b12704;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* BULLETIN LIST STYLE */
+        .bulletin-list {
+            list-style-type: square;
+            padding-left: 25px;
+            margin: 0;
+            white-space: normal; /* Allows text to wrap inside the list */
+        }
+
+        .bulletin-list li {
+            font-size: 1.1rem;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-label {
+            font-weight: bold;
+            color: #b12704;
+            margin-left: 10px;
+        }
+
+        /* Scrollbar Styling */
+        .big-horizontal-frame::-webkit-scrollbar { height: 12px; }
+        .big-horizontal-frame::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .inner-vertical-frame::-webkit-scrollbar { width: 6px; }
+        .inner-vertical-frame::-webkit-scrollbar-thumb { background: #bbb; border-radius: 10px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="main.html" class="back-btn">← Back to Home</a>
+        <h1>Elite Dine In</h1>
+    </header>
+
+    <center><h2 style="margin-top: 20px; color: #333;">🍮 DESSERT COLLECTION (Scroll Right →)</h2></center>
+
+    <!-- BIG OUTER HORIZONTAL FRAME -->
+    <div class="big-horizontal-frame">
+
+        <!-- FRAME 1: TRADITIONAL SWEETS (10 Items) -->
+        <div class="inner-vertical-frame">
+            <h3 class="title-label">🍬 INDIAN SWEETS</h3>
+            <ul class="bulletin-list">
+                <li><span>Gulab Jamun (2 pcs)</span> <span class="price-label">₹80</span></li>
+                <li><span>Rasmalai (2 pcs)</span> <span class="price-label">₹100</span></li>
+                <li><span>Gajar Ka Halwa</span> <span class="price-label">₹120</span></li>
+                <li><span>Kaju Katli (250g)</span> <span class="price-label">₹250</span></li>
+                <li><span>Special Mysore Pak</span> <span class="price-label">₹90</span></li>
+                <li><span>Hot Jalebi with Rabri</span> <span class="price-label">₹140</span></li>
+                <li><span>Moong Dal Halwa</span> <span class="price-label">₹130</span></li>
+                <li><span>Milk Peda Special</span> <span class="price-label">₹85</span></li>
+                <li><span>Bengali Rasgulla</span> <span class="price-label">₹70</span></li>
+                <li><span>Motichoor Laddu</span> <span class="price-label">₹95</span></li>
+            </ul>
+        </div>
+
+        <!-- FRAME 2: ICE CREAMS (10 Items) -->
+        <div class="inner-vertical-frame">
+            <h3 class="title-label">🍦 ICE CREAM PARLOUR</h3>
+            <ul class="bulletin-list">
+                <li><span>Classic Vanilla Bean</span> <span class="price-label">₹90</span></li>
+                <li><span>Double Belgian Chocolate</span> <span class="price-label">₹140</span></li>
+                <li><span>Alphonso Mango</span> <span class="price-label">₹110</span></li>
+                <li><span>Butterscotch Crunch</span> <span class="price-label">₹120</span></li>
+                <li><span>Roasted Pista</span> <span class="price-label">₹130</span></li>
+                <li><span>Black Currant Special</span> <span class="price-label">₹125</span></li>
+                <li><span>Strawberry Cheesecake</span> <span class="price-label">₹150</span></li>
+                <li><span>Cookies & Cream</span> <span class="price-label">₹140</span></li>
+                <li><span>Tender Coconut</span> <span class="price-label">₹120</span></li>
+                <li><span>Spanish Delight</span> <span class="price-label">₹145</span></li>
+            </ul>
+        </div>
+
+        <!-- FRAME 3: FALOODAS (5 Items) -->
+        <div class="inner-vertical-frame">
+            <h3 class="title-label">🍹 ROYAL FALOODAS</h3>
+            <ul class="bulletin-list">
+                <li><span>Royal Rose Falooda</span> <span class="price-label">₹180</span></li>
+                <li><span>Kesar Pista Falooda</span> <span class="price-label">₹210</span></li>
+                <li><span>Mango Delight Falooda</span> <span class="price-label">₹190</span></li>
+                <li><span>Dry Fruit Overload</span> <span class="price-label">₹250</span></li>
+                <li><span>Chocolate Brownie Falooda</span> <span class="price-label">₹220</span></li>
+            </ul>
+        </div>
+
+        <!-- FRAME 4: CONTINENTAL DESSERTS -->
+        <div class="inner-vertical-frame">
+            <h3 class="title-label">🍰 CAKES & BROWNIES</h3>
+            <ul class="bulletin-list">
+                <li><span>Choco Lava Cake</span> <span class="price-label">₹150</span></li>
+                <li><span>Sizzling Brownie</span> <span class="price-label">₹240</span></li>
+                <li><span>Nutella Waffle</span> <span class="price-label">₹180</span></li>
+                <li><span>Blueberry Cheesecake</span> <span class="price-label">₹220</span></li>
+                <li><span>Tiramisu Pastry</span> <span class="price-label">₹190</span></li>
+                <li><span>Red Velvet Cake</span> <span class="price-label">₹170</span></li>
+                <li><span>Apple Pie with Ice Cream</span> <span class="price-label">₹210</span></li>
+            </ul>
+        </div>
+
+    </div> <!-- End Big Horizontal Frame -->
+
+</body>
+</html>

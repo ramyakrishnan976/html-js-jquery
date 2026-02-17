@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Dine In - Responsive Menu</title>
+    <style>
+     
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+   
+        .app-bar {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu-container {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: hidden; 
+        }
+
+      
+        .menu-card {
+            height: 250px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* Necessary for absolute children */
+            overflow: hidden;
+            transition: transform 0.3s ease;
+          
+            text-decoration: none;
+        }
+
+        .menu-card:hover {
+            transform: scale(1.05);
+        }
+
+       
+        .menu-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+      
+        .menu-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+           
+            z-index: 1; /* Sits above the image */
+        }
+
+      
+        .menu-card h2 {
+            color: white;
+            z-index: 2; /* Sits above the overlay */
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-bar">Elite Dine In</div>
+
+    <div class="menu-container">
+        
+        <a href="burger.html" class="menu-card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500" alt="Burger">
+            <h2></h2>
+        </a>
+
+        <a href="pizza.html" class="menu-card">
+            <img src="https://content.jdmagicbox.com/v2/comp/chennai/n3/044pxx44.xx44.180214190027.w9n3/catalogue/ovenstory-pizza-anna-nagar-west-chennai-pizza-delivery-services-ygn0i9w04i.jpg" alt="Pizza">
+            <h2></h2>
+        </a>
+
+        <a href="sand.html" class="menu-card">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=500" alt="Sandwich">
+            <h2></h2>
+        </a>
+
+        <a href="fries.html" class="menu-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBt5RdbNGN2PopQ1ox14cVQI7tiXglqrAIA&s" alt="Fries">
+            <h2></h2>
+        </a>
+
+        <a href="cut.html" class="menu-card">
+            <img src="cut.jpeg" alt="Cutlet">
+            <h2></h2>
+        </a>
+
+        <a href="don.html" class="menu-card">
+            <img src="https://www.midwestliving.com/thmb/lML3-aFbmWNHGXRqLMfnTUt7Pbg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/KH_020624_MDWL0264FINAL-copy2_preview-48597259de2941d8bbef7abadb8ed041.jpg" alt="Dessert">
+            <h2></h2>
+        </a>
+
+        <a href="drinks.html" class="menu-card">
+            <img src="drinks.png" alt="Drinks">
+            <h2></h2>
+        </a>
+        
+    </div>
+
+</body>
+</html>

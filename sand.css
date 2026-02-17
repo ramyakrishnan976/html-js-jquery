@@ -1,0 +1,101 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* APP BAR STYLE */
+.app-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 3px solid #d4af37; /* Gold Elite border */
+    z-index: 1000;
+}
+
+.app-bar h1 {
+    color: white;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.back-btn {
+    color: white;
+    text-decoration: none;
+    background: #444;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* MAIN CONTAINER */
+.menu-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.category-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* TABLE STYLING */
+.sandwich-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Space between rows */
+}
+.back-btn:hover {
+    background: #d35400;
+}
+.sandwich-table th {
+    background-color: #333;
+    color: #d4af37;
+    padding: 12px;
+    text-align: left;
+}
+
+.sandwich-table td {
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white; /* White text looks better on colored backgrounds */
+}
+
+/* Price Column */
+.sandwich-table td:last-child {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* COLOR HIGHLIGHTS */
+.veg-row {
+    background-color: #2e7d32; /* Rich Green */
+}
+
+.non-veg-row {
+    background-color: #c62828; /* Rich Red */
+}
+
+/* Row Hover effect */
+tr:hover {
+    filter: brightness(1.1);
+    transform: scale(1.01);
+    transition: 0.2s;
+}

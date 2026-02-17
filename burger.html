@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Burger Menu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .app-bar {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+.back-btn:hover {
+    background: #d35400;
+}
+
+      
+        .burger-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+      
+        .section {
+            flex: 1;
+            min-width: 350px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 3px solid;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .veg-title { color: #27ae60; border-color: #27ae60; }
+        .non-veg-title { color: #c0392b; border-color: #c0392b; }
+
+
+        .burger-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .burger-info h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .burger-info p {
+            margin: 5px 0 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .veg-icon { color: #27ae60; font-size: 0.8rem; }
+        .nonveg-icon { color: #c0392b; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .burger-layout { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-bar">
+        <a href="main.html" class="back-btn">← Back to Home</a>
+        <span>Elite Dine In</span>
+        <div style="width: 70px;"></div> <!-- Spacer -->
+    </div>
+
+    <div class="burger-layout">
+        
+        <!-- VEG SECTION -->
+        <div class="section">
+            <h2 class="section-title veg-title">● Vegetarian Burgers</h2>
+            
+            <div class="burger-item">
+                <div class="burger-info"><h3>Classic Aloo Tikki</h3><p>Spicy potato patty with herbs</p></div>
+                <div class="price">₹120</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Creamy Mushroom Magic</h3><p>Sautéed button mushrooms & cheese</p></div>
+                <div class="price">₹180</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Paneer Tikka Burger</h3><p>Marinated paneer grilled to perfection</p></div>
+                <div class="price">₹195</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Spicy Mushroom Jalapeno</h3><p>Garlic mushrooms with spicy kick</p></div>
+                <div class="price">₹190</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Double Cheese Veg</h3><p>Mixed veg patty with double cheddar</p></div>
+                <div class="price">₹210</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Crispy Corn & Cheese</h3><p>Golden fried corn and melting cheese</p></div>
+                <div class="price">₹175</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>The Big Maharaja Veg</h3><p>Triple layer burger with extra sauce</p></div>
+                <div class="price">₹250</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Beetroot & Quinoa</h3><p>Healthy protein-packed patty</p></div>
+                <div class="price">₹220</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Spinach & Mushroom</h3><p>Leafy greens mixed with grilled mushroom</p></div>
+                <div class="price">₹185</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Mexican Salsa Veg</h3><p>Tortilla chips, salsa, and veg patty</p></div>
+                <div class="price">₹190</div>
+            </div>
+        </div>
+
+        <!-- NON-VEG SECTION -->
+        <div class="section">
+            <h2 class="section-title non-veg-title">▲ Non-Veg Burgers</h2>
+            
+            <div class="burger-item">
+                <div class="burger-info"><h3>Classic Chicken Grilled</h3><p>Juicy chicken breast with mayo</p></div>
+                <div class="price">₹160</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Crispy Chicken Zinger</h3><p>Deep fried spicy chicken thigh</p></div>
+                <div class="price">₹190</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Mutton Whopper</h3><p>Flame-grilled tender mutton patty</p></div>
+                <div class="price">₹280</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Chicken BBQ Bacon</h3><p>Chicken patty with smoked BBQ sauce</p></div>
+                <div class="price">₹240</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Egg & Cheese Delight</h3><p>Double omelette with molten cheese</p></div>
+                <div class="price">₹140</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Peri Peri Chicken</h3><p>African bird's eye chili marinade</p></div>
+                <div class="price">₹210</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Grilled Fish Burger</h3><p>Lemon butter basted fish fillet</p></div>
+                <div class="price">₹260</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Tandoori Chicken Burger</h3><p>Desi style clay-oven chicken</p></div>
+                <div class="price">₹220</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Double Patty Chicken</h3><p>Two layers of meat and extra cheese</p></div>
+                <div class="price">₹290</div>
+            </div>
+
+            <div class="burger-item">
+                <div class="burger-info"><h3>Prawn Crispy Burger</h3><p>Golden fried prawns with tartar sauce</p></div>
+                <div class="price">₹310</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

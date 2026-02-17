@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Dine In - Drinks Menu</title>
+    <link rel="stylesheet" href="fries.css">
+    <style>
+        /* 1. THE BIG OUTER FRAME (Periya Frame) */
+        .big-outer-scroll-frame {
+            border: 10px double #333; /* Periya border */
+            background-color: #f0f0f0;
+            border-radius: 25px;
+            margin: 20px auto;
+            max-width: 1150px;
+            padding: 20px;
+            
+            /* Big Frame scroll aaga idhu mukkiyam */
+            height: 650px; 
+            overflow-y: auto; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* 2. GRID LAYOUT (2 Row, 2 Column) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 30px;
+            /* Intha height outer frame-ai vida athigama iruntha thaan Outer scroll velai seiyum */
+            min-height: 900px; 
+        }
+
+        /* 3. INNER FRAMES (Ulla irukura 4 Frame) */
+        .inner-scroll-box {
+            background: white;
+            border: 3px solid #555;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            
+            /* Thani-thaniya scroll aaga idhu mukkiyam */
+            height: 350px; 
+            overflow-y: auto; 
+        }
+
+        /* HEADER STYLING */
+        .category-header {
+            background: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            position: sticky; /* Title scroll pannum pothu mela nikkum */
+            top: 0;
+            z-index: 5;
+        }
+
+        /* BULLETIN LIST STYLING */
+        .bulletin-list {
+            list-style-type: disc;
+            padding-left: 25px;
+        }
+
+        .bulletin-list li {
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-info {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #1b5e20;
+        }
+
+        /* Custom Scrollbar for Big Frame */
+        .big-outer-scroll-frame::-webkit-scrollbar { width: 12px; }
+        .big-outer-scroll-frame::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .big-outer-scroll-frame { height: auto; overflow: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="main.html" class="back-btn">← Back to Home</a>
+        <h1>Elite Dine In</h1>
+    </header>
+
+    <!-- STEP 1: PERIYA OUTER FRAME -->
+    <div class="big-outer-scroll-frame">
+        
+        <!-- STEP 2: GRID LAYOUT -->
+        <div class="grid-container">
+
+            <!-- FRAME 1: MOJITOS -->
+            <div class="inner-scroll-box">
+                <h2 class="category-header">🍹 MOJITOS</h2>
+                <ul class="bulletin-list">
+                    <li><div class="item-info"><span>Classic Virgin Mojito</span><span class="price">₹149</span></div></li>
+                    <li><div class="item-info"><span>Blue Lagoon Fizz</span><span class="price">₹169</span></div></li>
+                    <li><div class="item-info"><span>Green Apple Mint</span><span class="price">₹179</span></div></li>
+                    <li><div class="item-info"><span>Watermelon Cooler</span><span class="price">₹159</span></div></li>
+                    <li><div class="item-info"><span>Strawberry Sparkle</span><span class="price">₹179</span></div></li>
+                    <li><div class="item-info"><span>Passion Fruit Mojito</span><span class="price">₹189</span></div></li>
+                    <li><div class="item-info"><span>Kiwi Blast</span><span class="price">₹179</span></div></li>
+                    <li><div class="item-info"><span>Litchi Mint Fizz</span><span class="price">₹169</span></div></li>
+                    <li><div class="item-info"><span>Blackcurrant Mojito</span><span class="price">₹189</span></div></li>
+                    <li><div class="item-info"><span>Ginger Lemon Fizz</span><span class="price">₹139</span></div></li>
+                    <li><div class="item-info"><span>Cucumber Cooler</span><span class="price">₹149</span></div></li>
+                </ul>
+            </div>
+
+            <!-- FRAME 2: FRESH JUICES -->
+            <div class="inner-scroll-box">
+                <h2 class="category-header">🍎 FRESH JUICES</h2>
+                <ul class="bulletin-list">
+                    <li><div class="item-info"><span>Watermelon Juice</span><span class="price">₹99</span></div></li>
+                    <li><div class="item-info"><span>Valencia Orange</span><span class="price">₹129</span></div></li>
+                    <li><div class="item-info"><span>Sweet Lime (Mosambi)</span><span class="price">₹119</span></div></li>
+                    <li><div class="item-info"><span>Pineapple Refresh</span><span class="price">₹109</span></div></li>
+                    <li><div class="item-info"><span>Pomegranate Special</span><span class="price">₹159</span></div></li>
+                    <li><div class="item-info"><span>Apple Pure Juice</span><span class="price">₹149</span></div></li>
+                    <li><div class="item-info"><span>Grape Nectar</span><span class="price">₹119</span></div></li>
+                    <li><div class="item-info"><span>ABC (Detox Mix)</span><span class="price">₹169</span></div></li>
+                    <li><div class="item-info"><span>Mixed Fruit Blast</span><span class="price">₹139</span></div></li>
+                    <li><div class="item-info"><span>Carrot & Ginger Juice</span><span class="price">₹129</span></div></li>
+                    <li><div class="item-info"><span>Lemon Iced Tea Juice</span><span class="price">₹89</span></div></li>
+                </ul>
+            </div>
+
+            <!-- FRAME 3: SHAKES & FRAPPES -->
+            <div class="inner-scroll-box">
+                <h2 class="category-header">🥤 SHAKES & FRAPPES</h2>
+                <ul class="bulletin-list">
+                    <li><div class="item-info"><span>Belgian Chocolate Shake</span><span class="price">₹199</span></div></li>
+                    <li><div class="item-info"><span>Oreo Cream Frappe</span><span class="price">₹219</span></div></li>
+                    <li><div class="item-info"><span>Cold Coffee Classic</span><span class="price">₹159</span></div></li>
+                    <li><div class="item-info"><span>KitKat Thick Shake</span><span class="price">₹229</span></div></li>
+                    <li><div class="item-info"><span>Nutella Overload</span><span class="price">₹269</span></div></li>
+                    <li><div class="item-info"><span>Caramel Coffee Frappe</span><span class="price">₹239</span></div></li>
+                    <li><div class="item-info"><span>Strawberry Velvet Shake</span><span class="price">₹189</span></div></li>
+                    <li><div class="item-info"><span>Hazelnut Frappe</span><span class="price">₹249</span></div></li>
+                    <li><div class="item-info"><span>Brownie Break Shake</span><span class="price">₹249</span></div></li>
+                    <li><div class="item-info"><span>Vanilla Bean Shake</span><span class="price">₹179</span></div></li>
+                    <li><div class="item-info"><span>Mocha Choco Shake</span><span class="price">₹219</span></div></li>
+                </ul>
+            </div>
+
+            <!-- FRAME 4: TEA & COFFEE -->
+            <div class="inner-scroll-box">
+                <h2 class="category-header">☕ TEA & COFFEE</h2>
+                <ul class="bulletin-list">
+                    <li><div class="item-info"><span>Masala Chai (Pot)</span><span class="price">₹79</span></div></li>
+                    <li><div class="item-info"><span>Ginger Elaichi Tea</span><span class="price">₹69</span></div></li>
+                    <li><div class="item-info"><span>Cappuccino Italian</span><span class="price">₹149</span></div></li>
+                    <li><div class="item-info"><span>Classic Cafe Latte</span><span class="price">₹159</span></div></li>
+                    <li><div class="item-info"><span>Hot Chocolate Rich</span><span class="price">₹179</span></div></li>
+                    <li><div class="item-info"><span>Espresso Shot</span><span class="price">₹99</span></div></li>
+                    <li><div class="item-info"><span>Green Tea Lemon</span><span class="price">₹89</span></div></li>
+                    <li><div class="item-info"><span>Americano (Black)</span><span class="price">₹129</span></div></li>
+                    <li><div class="item-info"><span>Irish Coffee (Non-Alc)</span><span class="price">₹199</span></div></li>
+                    <li><div class="item-info"><span>Assam Special Tea</span><span class="price">₹69</span></div></li>
+                    <li><div class="item-info"><span>Bournvita Milk</span><span class="price">₹99</span></div></li>
+                </ul>
+            </div>
+
+        </div> <!-- Grid End -->
+
+    </div> <!-- Periya Frame End -->
+
+</body>
+</html>
