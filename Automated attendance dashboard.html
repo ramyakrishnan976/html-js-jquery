@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* CSS: Modern Dashboard Style */
+        body { font-family: 'Inter', sans-serif; background: #eef2f3; padding: 20px; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 450px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h2 { color: #2c3e50; text-align: center; margin-bottom: 20px; font-weight: 600; }
+        
+        /* List Styling */
+        .row { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f0f0f0; transition: 0.2s; }
+        .row:hover { background: #f8fbff; }
+        select { border: 1px solid #ddd; padding: 6px; border-radius: 6px; outline: none; cursor: pointer; }
+        
+        /* Stats & Button */
+        .live-bar { background: #f8fbff; padding: 10px; border-radius: 10px; margin: 15px 0; text-align: center; color: #3498db; font-weight: bold; }
+        button { background: #3498db; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #2980b9; transform: translateY(-2px); }
+
+        /* Summary Card (Glassmorphism Effect) */
+        #report { display: none; margin-top: 20px; padding: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); }
+        .absent-list { color: #e74c3c; margin-top: 10px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Class:I MCA "A"- <span id="dt"></span></h2>
+    <div id="list"></div>
+    <div class="live-bar" id="cnt">Present: 0 | Total: 8</div>
+    <button onclick="gen()">GENERATE FINAL SUMMARY</button>
+
+    <div id="report">
+        <h3 style="margin:0 0 10px 0; color:#2c3e50;">📊 Session Summary</h3>
+        <p id="sum" style="line-height:1.6;"></p>
+        <p id="abs" class="absent-list"></p>
+    </div>
+</div>
+
+<script>
+    const names = ["Ramya", "Ramya Krishnan", "Vishnu Priya", "Archana", "Navis", "Mega", "Jananika", "Elakiya"];
+    const data = names.map(n => ({ n, s: "Absent" }));
+
+    // User-Defined: Render List
+    const list = document.getElementById('list');
+    names.forEach(n => {
+        list.innerHTML += `<div class="row"><span>${n}</span>
+            <select onchange="upd('${n}',this.value)">
+                <option>Absent</option><option>Present</option>
+            </select></div>`;
+    });
+
+    // User-Defined: Update State
+    const upd = (n, v) => {
+        data.find(r => r.n === n).s = v;
+        const p = data.filter(r => r.s === "Present").length;
+        document.getElementById('cnt').innerText = `Present: ${p} | Total: ${names.length}`;
+    };
+
+    // User-Defined: Final Report
+    const gen = () => {
+        const ab = data.filter(r => r.s === "Absent");
+        document.getElementById('report').style.display = "block";
+        document.getElementById('sum').innerHTML = `<b>Total:</b> ${names.length}<br><b>Present:</b> ${names.length - ab.length}<br><b>Absent:</b> ${ab.length}`;
+        document.getElementById('abs').innerText = ab.length ? "❌ Absentees: " + ab.map(r => r.n).join(", ") : "✅ All present!";
+    };
+
+    // Standard: Date Formatting
+    document.getElementById('dt').innerText = new Date().toLocaleDateString();
+</script>
+
+</body>
+</html>
