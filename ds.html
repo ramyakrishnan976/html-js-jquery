@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Data Structure Visualizer</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 40px; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 500px; }
+        h2 { text-align: center; color: #1a73e8; margin-top: 0; }
+        
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        input { padding: 12px; border: 2px solid #ddd; border-radius: 8px; grid-column: span 2; font-size: 16px; }
+        
+        button { padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .btn-enqueue { background: #34a853; color: white; }
+        .btn-dequeue { background: #ea4335; color: white; }
+        .btn-peek { background: #fbbc05; color: black; }
+        .btn-clear { background: #70757a; color: white; }
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        .visualizer { margin-top: 20px; min-height: 100px; border: 2px dashed #ccc; border-radius: 10px; display: flex; align-items: center; padding: 10px; overflow-x: auto; gap: 10px; background: #fafafa; }
+        .queue-item { min-width: 50px; height: 50px; background: #1a73e8; color: white; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; animation: popIn 0.3s ease; position: relative; }
+        .queue-item:first-child::after { content: "FRONT"; position: absolute; top: -20px; font-size: 10px; color: #ea4335; }
+        .queue-item:last-child::after { content: "REAR"; position: absolute; bottom: -20px; font-size: 10px; color: #34a853; }
+
+        #status { margin-top: 15px; padding: 10px; border-radius: 5px; text-align: center; font-size: 14px; font-weight: 500; }
+        .info { background: #e8f0fe; color: #1967d2; }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Queue (FIFO) Visualizer</h2>
+
+    <div class="controls">
+        <input type="text" id="elementInput" placeholder="Enter value (e.g. 10 or 'Apple')">
+        <button class="btn-enqueue" onclick="opEnqueue()">Enqueue</button>
+        <button class="btn-dequeue" onclick="opDequeue()">Dequeue</button>
+        <button class="btn-peek" onclick="opPeek()">Peek</button>
+        <button class="btn-clear" onclick="opClear()">Clear</button>
+    </div>
+
+    <div id="status" class="info">Queue is currently empty.</div>
+
+    <div class="visualizer" id="queueContainer">
+        <!-- Queue items will appear here -->
+    </div>
+</div>
+<script>
+    // --- Queue Class with Fixed Size ---
+    class Queue {
+        constructor(maxSize) {
+            this.items = [];
+            this.maxSize = maxSize;
+        }
+
+        // Enqueue operation
+        enqueue(element) {
+            if (this.isFull()) {
+                return "Overflow";
+            }
+            this.items.push(element);
+            return "Success";
+        }
+
+        // Dequeue operation
+        dequeue() {
+            if (this.isEmpty()) {
+                return "Underflow";
+            }
+            return this.items.shift();
+        }
+
+        // Peek operation
+        peek() {
+            if (this.isEmpty()) {
+                return "Queue is Empty";
+            }
+            return this.items[0];
+        }
+
+        // Check empty
+        isEmpty() {
+            return this.items.length === 0;
+        }
+
+        // Check full
+        isFull() {
+            return this.items.length === this.maxSize;
+        }
+
+        // Queue size
+        size() {
+            return this.items.length;
+        }
+
+        // Clear queue
+        clear() {
+            this.items = [];
+        }
+    }
+
+    // --- UI Logic ---
+    const MAX_SIZE = 5; // 🔴 Fixed queue size
+    const myQueue = new Queue(MAX_SIZE);
+
+    const input = document.getElementById('elementInput');
+    const container = document.getElementById('queueContainer');
+    const status = document.getElementById('status');
+
+    function render() {
+        container.innerHTML = '';
+
+        myQueue.items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'queue-item';
+            div.innerText = item;
+            container.appendChild(div);
+        });
+
+        if (myQueue.isEmpty()) {
+            status.innerText = "Queue is empty.";
+        } else {
+            status.innerText = `Size: ${myQueue.size()}/${MAX_SIZE} | Front: ${myQueue.peek()}`;
+        }
+    }
+
+    function opEnqueue() {
+        const val = input.value.trim();
+        if (val === "") {
+            alert("Please enter a value!");
+            return;
+        }
+
+        const result = myQueue.enqueue(val);
+
+        if (result === "Overflow") {
+            alert("Queue Overflow! Queue is full.");
+        } else {
+            render();
+        }
+
+        input.value = '';
+        input.focus();
+    }
+
+    function opDequeue() {
+        const removed = myQueue.dequeue();
+
+        if (removed === "Underflow") {
+            alert("Queue Underflow! Queue is empty.");
+        } else {
+            render();
+            status.innerText = `Removed: ${removed}`;
+        }
+    }
+
+    function opPeek() {
+        alert("Front element is: " + myQueue.peek());
+    }
+
+    function opClear() {
+        myQueue.clear();
+        render();
+    }
+</script>
+
+
+</body>
+</html>
