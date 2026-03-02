@@ -1,0 +1,100 @@
+/* Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+	background:linear-gradient(227deg,rgba(242, 196, 194, 1) 12%, rgba(225, 242, 211, 1) 58%, rgba(241, 214, 238, 1) 87%, rgba(209, 226, 255, 1) 100%)
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    background:#ffa59e;
+    padding: 20px;
+    border:solid 5px;
+    border-radius: 20px;
+	border-color:#f04f43;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* Calculator Styles */
+.calculator {
+    background-color: #9df3fc;
+    padding: 20px;
+	border:solid 1px;
+    border-radius: 15px;
+    width: 300px;
+}
+
+
+#display {
+    width: 100%;
+    height: 60px;
+    font-size: 2rem;
+    text-align: right;
+    border: none;
+    background: transparent;
+    color: black;
+    margin-bottom: 20px;
+}
+
+
+.buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+button {
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+.operator { background-color: red; }
+.equal { background-color: green; }
+.col-2 { grid-column: span 2; }
+
+/* History Styles */
+.history-panel {
+    width: 250px;
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.clear-history-btn {
+    background: #ff0703;
+    font-size: 0.8rem;
+    height: 30px;
+	width:100px;
+    padding: 0 10px;
+}
+
+#history-list {
+    list-style: none;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.history-item:hover { background: #f9f9f9; }
+.history-item span { display: block; font-weight: bold; color: #000; }
