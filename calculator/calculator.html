@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with History</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Calculator Section -->
+        <div class="calculator">
+            <input type="text" id="display" readonly placeholder="0">
+            <div class="buttons">
+                <button onclick="clearDisplay()" class="operator col-2">AC</button>
+                <button onclick="deleteLast()" class="operator">DEL</button>
+                <button onclick="appendToDisplay('/')" class="operator">÷</button>
+
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('*')" class="operator">×</button>
+
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('-')" class="operator">−</button>
+
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('+')" class="operator">+</button>
+
+                <button onclick="appendToDisplay('0')" class="col-2">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="calculate()" class="equal">=</button>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button onclick="clearHistory()" class="clear-history-btn">Clear</button>
+            </div>
+            <ul id="history-list">
+                <!-- History items will appear here -->
+            </ul>
+        </div>
+    </div>
+    <script src="cal.js"></script>
+</body>
+</html>
