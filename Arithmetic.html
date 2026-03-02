@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Arithmetic Operations - AngularJS</title>
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body{
+            text-align:center;
+            font-family:Arial;
+            margin-top:100px;
+        }
+
+        .box{
+            display:inline-block;
+            padding:20px;
+            border:1px solid black;
+        }
+
+        input, select{
+            padding:5px;
+            margin:5px;
+        }
+
+        button{
+            padding:5px 10px;
+        }
+    </style>
+</head>
+
+<body ng-controller="myController">
+
+<div class="box">
+    <h2>Arithmetic Operations</h2>
+
+    <input type="number" ng-model="num1" placeholder="Enter First Number"><br>
+    <input type="number" ng-model="num2" placeholder="Enter Second Number"><br>
+
+    <select ng-model="operator">
+        <option value="add">Addition</option>
+        <option value="sub">Subtraction</option>
+        <option value="mul">Multiplication</option>
+        <option value="div">Division</option>
+    </select><br>
+
+    <button ng-click="calculate()">Calculate</button>
+
+    <h3>Result (Using $scope): {{result}}</h3>
+    <h3>Result (Using $rootScope): {{rootResult}}</h3>
+</div>
+
+<script>
+var app = angular.module("myApp", []);
+
+app.controller("myController", function($scope, $rootScope){
+
+    $scope.calculate = function(){
+
+        switch($scope.operator){
+
+            case "add":
+                $scope.result = $scope.num1 + $scope.num2;
+                $rootScope.rootResult = $scope.result;
+                break;
+
+            case "sub":
+                $scope.result = $scope.num1 - $scope.num2;
+                $rootScope.rootResult = $scope.result;
+                break;
+
+            case "mul":
+                $scope.result = $scope.num1 * $scope.num2;
+                $rootScope.rootResult = $scope.result;
+                break;
+
+            case "div":
+                $scope.result = $scope.num1 / $scope.num2;
+                $rootScope.rootResult = $scope.result;
+                break;
+        }
+    };
+
+});
+</script>
+
+</body>
+</html>
